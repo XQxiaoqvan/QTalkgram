@@ -6,7 +6,7 @@ QTalkgram is a third-party client using Electron+Vue3+TDLib.
 
 ## Screenshots
 
-![Screenshots](/Screenshots/Screenshots.jpg)
+![Screenshots](/Screenshots/Screenshots.png)
 
 ### Developer's Note
 
