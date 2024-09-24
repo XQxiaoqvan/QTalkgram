@@ -4,18 +4,28 @@
 
 QTalkgram is a third-party client using Electron+Vue3+TDLib.
 
-## Screenshots
-
-![Screenshots](/Screenshots/Screenshots.png)
-
-### Developer's Note
-
-I wanted a Telegram third-party client with an interface that matches my vision, but due to my limited capabilities, I can only start with basic functionality and build it up gradually. With only basic experience in Vue development, many aspects are not following standardized development processes. Additionally, my lack of deep JavaScript knowledge makes this quite challenging. I've also never worked with chat service interactions before, so many aspects are under-considered. Therefore, I've used AI to assist in development. If there are any issues or mistakes in the code or if something hasn't been considered, please feel free to open issues to correct them. Contributors are welcome to help maintain this project and include as many features from the original client as possible, as well as correct errors in the code.
-
-### Open Source
-
-The entire project will be released in my first test version, which you can check in the Development branch. This test version is expected to only support simple text-based chatting and may not yet support Telegram's native language packs (because all UI texts are currently hardcoded in the codebase, and language pack support is on my priority list for adaptation).
-
 ## About
 
-You can join our community group at [https://t.me/QTalkgramGroup](https://t.me/QTalkgramGroup) to get the latest development updates and contact me.
+You can join our group chat at https://t.me/QTalkgramGroup to get the latest development progress and contact me.
+
+## Debugging
+
+```bash
+# Clone this project and enter the directory
+npm install
+npm run dev
+```
+
+## Tech Stack
+
+- [Vue](https://vuejs.org/) (Frontend support) MIT License
+- [tdl](https://github.com/Bannerets/tdl#readme) (JavaScript wrapper for TDLib) MIT License
+- [Vite](https://vitejs.dev/) (Build tool) MIT License
+- [Pinia](https://pinia.vuejs.org/) (State management) MIT License
+- [TDLib](https://github.com/tdlib/td) (Telegram Database) BSL-1.0 license
+- [axios](https://axios-http.com/) (For network requests) MIT License
+- [Electron](https://www.electronjs.org/) (Electron framework) MIT License
+- [lottie-web](https://github.com/airbnb/lottie-web) (Animation library) MIT License
+- [Vue-router](https://router.vuejs.org/) (Routing management) MIT License
+- [styled-qr-code](https://github.com/KilianB/styled-qr-code) (For generating QR codes) MIT License
+- [tdesign-vue-next](https://tdesign.tencent.com/) (Tencent UI component library) MIT License

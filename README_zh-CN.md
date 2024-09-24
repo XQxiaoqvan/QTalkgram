@@ -4,14 +4,28 @@
 
 QTalkgram是一个使用Electron+Vue3+TDLib的第三方客户端
 
-### 开发者的话
-
-本人想要一个符合自己想法界面的telegram第三方客户端，但实力无法快速开发出完整功能的客户端，只能先从基础功能一点点的做起来。因为只有vue基础开发经验很多东西并不是按着标准化开发流程，并且不是特别喜欢写JavaScript基础很差的我来说难度极大，以及从来没有接触过和一些聊天服务端交互的开发有很多方面其实都欠考虑，因此我使用了 ai 来辅助开发。如果有不好的地方还是欢迎大家提出 issues 来指正我代码中的错误以及没有考虑到的内容，对于贡献者欢迎大家一起来维护本项目尽量欢迎原版的客户端的功能以及指能正我代码中的错误。
-
-### 开源
-
-整个项目会在我发送第一个测试版本发布，你可以查看 Development 分支，预计该测试版本只能简单的通过文本聊天，而且可能并不支持telegram原生的语言包（因为所有UI文本目前暂时写死在代码中，语言包在我的优先适配计划内。）
-
 ## 关于
 
 大家可以通过我们的交流群 https://t.me/QTalkgramGroup 来获取最新的开发进度以及与我联系。
+
+## 调试
+
+```bash
+# 克隆本项目并进入目录
+npm install
+npm run dev
+```
+
+## 技术栈
+
+- [Vue](https://cn.vuejs.org/) (前端支持) MIT License
+- [tdl](https://github.com/Bannerets/tdl#readme) (TDLib的JavaScript 包装器) MIT License
+- [Vite](https://vitejs.cn/vite3-cn/) (打包工具) MIT License
+- [Pinia](https://pinia.vuejs.org/zh/) (状态管理) MIT License
+- [TDLib](https://github.com/tdlib/td) (Telegram 数据库) BSL-1.0 license
+- [axios](https://axios-http.com/) (用于网络请求) MIT License
+- [Electron](https://www.electronjs.org/) (Electron 框架) MIT License
+- [lottie-web](https://github.com/airbnb/lottie-web) (动画库) MIT License
+- [Vue-router](https://router.vuejs.org/zh/) (路由管理) MIT License
+- [styled-qr-code](https://github.com/KilianB/styled-qr-code) (用于生成二维码) MIT License
+- [tdesign-vue-next](https://tdesign.tencent.com/) (腾讯UI组件库) MIT License
