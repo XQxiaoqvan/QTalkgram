@@ -9,7 +9,7 @@ QTalkgram是一个使用Electron+Vue3+TDLib的第三方客户端
 
 ## 关于
 
-大家可以通过我们的交流群 https://t.me/QTalkgramGroup 来获取最新的开发进度以及与我联系。
+大家可以通过关注我们的频道 https://t.me/QTalkgramNew 来获取最新的开发进度以及与我联系。
 
 ## 调试
 

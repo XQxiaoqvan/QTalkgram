@@ -10,7 +10,7 @@ QTalkgram is a third-party client using Electron+Vue3+TDLib.
 
 ## About
 
-You can join our group chat at https://t.me/QTalkgramGroup to get the latest development progress and contact me.
+You can follow our channel at https://t.me/QTalkgramNew to get the latest development progress and contact me.
 
 ## Debugging
 
