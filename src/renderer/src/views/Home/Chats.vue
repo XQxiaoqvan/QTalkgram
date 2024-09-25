@@ -12,53 +12,47 @@
             </t-input>
             <t-button class="home_content_nav_add">+</t-button>
         </div>
-        <div>
-
+        <div style="padding: 7px;display: flex; gap: 15px;">
+            <t-skeleton v-for="i in 5" :rowCol="[
+                { type: 'text', width: '40px', height: '18px', margin: '0 0 0 0' },
+            ]" animation="gradient">
+            </t-skeleton>
         </div>
-        <div @dragstart.prevent class="home_content_nav_search_line no_select">
-            <div v-for="i in 2" :key="i" class="list_skeleton">
-                <t-skeleton :rowCol="list_skeleton" animation="gradient"></t-skeleton>
-            </div>
-            <div class="Chat">
-                <!-- 聊天头像 -->
-                <t-badge count="0" :offset="[5, 40]">
-                    <t-avatar class="avatar">Test</t-avatar>
-                </t-badge>
-                <!-- 信息 -->
-                <div class="info">
-                    <div class="title">
-                        <div class="name">
-                            <!-- 标题 -->
-                            <h3 class="name_text">Title Test</h3>
-                            <!-- 状态 -->
-                            <div v-if="false" ref="tgsContainer" class="tgs-container"></div>
-                            <!-- 静音 -->
-                            <SoundMute1Icon class="sound" />
-                        </div>
-                        <div class="separator"></div>
-                        <!-- 时间 -->
-                        <div class="time">11:08</div>
-                    </div>
-                    <!-- 不同类型消息判断 -->
-                    <div class="message">
-                        <!-- 纯文本消息 -->
-                        <div class="text">
-                            <span>You:&nbsp;</span>Test
-                        </div>
-                        <!-- 未读 -->
-                        <div class="unread">
-                            <t-badge class="num" count="1" :offset="[18, 10]" />
-                        </div>
-                    </div>
-                    <div class="grouping" v-if="true">
-                        <!-- 分组标签 -->
-                        <div class="tag">
-                            Test
-                        </div>
+        <t-divider style="margin: 0;" />
+        <div>
+            <div @dragstart.prevent class="home_content_nav_search_line no_select">
+                <div v-for="i in 7" :key="i" class="list_skeleton">
+                    <div class="skeleton">
+                        <t-skeleton :rowCol="skeleton_avatar" animation="gradient"></t-skeleton>
+                        <t-skeleton class="skeleton_title" :rowCol="[
+                            { type: 'text', width: '170px', height: '13px', margin: '0 0 0 5px' },
+                            { type: 'text', width: '130px', height: '13px', margin: '0 0 0 5px' },
+                            { type: 'text', width: '100px', height: '13px', margin: '0 0 0 5px' },
+                        ]" animation="gradient"></t-skeleton>
+                        <t-skeleton class="skeleton_title" :rowCol="[
+                            { type: 'text', width: '30px', height: '13px', margin: '0 0 0 5px' },
+                            { type: 'circle', size: '19px', margin: '10px 0 0 15px' },
+                        ]" animation="gradient"></t-skeleton>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- <div @dragstart.prevent class="home_content_nav_search_line no_select">
+            <div v-for="i in 6" :key="i" class="list_skeleton">
+                <div class="skeleton">
+                    <t-skeleton :rowCol="skeleton_avatar" animation="gradient"></t-skeleton>
+                    <t-skeleton class="skeleton_title" :rowCol="[
+                        { type: 'text', width: '140px', height: '13px', margin: '0 0 0 5px' },
+                        { type: 'text', width: '130px', height: '13px', margin: '0 0 0 5px' },
+                        { type: 'text', width: '100px', height: '13px', margin: '0 0 0 5px' },
+                    ]" animation="gradient"></t-skeleton>
+                    <t-skeleton class="skeleton_title" :rowCol="[
+                        { type: 'text', width: '30px', height: '13px', margin: '0 0 0 5px' },
+                        { type: 'circle', size: '19px', margin: '10px 0 0 15px' },
+                    ]" animation="gradient"></t-skeleton>
+                </div>
+            </div>
+        </div> -->
     </div>
     <div class="home_content_nav_drag" @mousedown="startDrag"></div>
 </template>
@@ -70,6 +64,11 @@ import { SearchIcon } from 'tdesign-icons-vue-next';
 // import chatlist from '@/components/SessionList/chat.vue'
 import { SoundMute1Icon } from 'tdesign-icons-vue-next';
 
+
+const value = ref('22');
+const theme = ref('normal');
+const scrollPosition = ref('auto');
+
 const navWidth = ref(380)
 const isDragging = ref(false)
 let startX = 0
@@ -78,12 +77,12 @@ const chatwindow = ref(true)
 const indicatorStyle = ref({})
 const groupList = ref(null)
 const search = ref('')
-const list_skeleton = [
+const skeleton_avatar = [
     [
-        { type: 'circle', size: '45px' },
-        { type: 'rect', margin: '20px 0', height: '30px' },
-    ]
+        { type: 'circle', size: '45px', margin: '0 0 8px 0' },
+    ],
 ]
+// const skeleton_title = 
 
 
 
@@ -246,10 +245,14 @@ onMounted(() => {
 
 .list_skeleton {
     display: flex;
-    margin-bottom: 10px;
+    padding: 7px;
 
-    .list_skeleton_text {
-        width: 70%;
+    .skeleton {
+        display: flex;
+    }
+
+    .skeleton_title {
+        margin: 0;
     }
 }
 
@@ -395,5 +398,18 @@ onMounted(() => {
     .text {
         color: #fff !important;
     }
+}
+</style>
+<style>
+.t-skeleton__row {
+    margin-bottom: 4px;
+}
+
+.t-tabs__operations--left {
+    display: none;
+}
+
+.t-tabs__operations--right {
+    display: none;
 }
 </style>
