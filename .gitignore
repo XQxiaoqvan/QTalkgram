@@ -131,3 +131,4 @@ dist
 /_td_database
 /_td_files
 /resources/TDLib
+/build
