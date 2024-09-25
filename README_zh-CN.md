@@ -1,4 +1,7 @@
 [EN](README.md) | [中文](README_zh-CN.md)
+## 注意
+
+本项目处于开发阶段
 
 ## 描述
 
@@ -20,12 +23,12 @@ npm run dev
 
 - [Vue](https://cn.vuejs.org/) (前端支持) MIT License
 - [tdl](https://github.com/Bannerets/tdl#readme) (TDLib的JavaScript 包装器) MIT License
-- [Vite](https://vitejs.cn/vite3-cn/) (打包工具) MIT License
 - [Pinia](https://pinia.vuejs.org/zh/) (状态管理) MIT License
 - [TDLib](https://github.com/tdlib/td) (Telegram 数据库) BSL-1.0 license
 - [axios](https://axios-http.com/) (用于网络请求) MIT License
 - [Electron](https://www.electronjs.org/) (Electron 框架) MIT License
 - [lottie-web](https://github.com/airbnb/lottie-web) (动画库) MIT License
 - [Vue-router](https://router.vuejs.org/zh/) (路由管理) MIT License
+- [electron-vite](https://electron-vite.org/) (打包工具) MIT License
 - [styled-qr-code](https://github.com/KilianB/styled-qr-code) (用于生成二维码) MIT License
 - [tdesign-vue-next](https://tdesign.tencent.com/) (腾讯UI组件库) MIT License
