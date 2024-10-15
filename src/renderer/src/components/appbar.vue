@@ -13,21 +13,22 @@
                     </div>
                 </div>
                 <!-- chats/对话 -->
-                <RouterLink to="/home/chats" active-class="active" class="home_nav_Page_chat no_drag">
+                <RouterLink to="/home/chats" active-class="active no_Link" class="home_nav_Page_chat no_drag no_Link">
                     <ChatBubbleIcon />
                 </RouterLink>
                 <!-- contacts/联系人 -->
-                <div to="/home/contacts" active-class="active" class="home_nav_Page_contact no_drag">
+                <RouterLink to="/home/contacts" active-class="active"
+                    class="home_nav_Page_contact no_Link no_drag no_Link">
                     <MemberIcon />
-                </div>
+                </RouterLink>
                 <!-- calls/通话 -->
                 <!-- <div class="home_nav_Page_call">
 
                 </div> -->
                 <!-- archives/已归档对话 -->
-                <div to="home/archive" active-class="active" class="home_nav_Page_archive no_drag">
+                <RouterLink to="/home/archive" active-class="active" class="home_nav_Page_archive no_drag no_Link">
                     <archive style="height: 25px;width: 25px;" />
-                </div>
+                </RouterLink>
             </div>
         </div>
         <div class="home_nav_Page_bottom">

@@ -1,9 +1,15 @@
 <template>
-    <div class="home">
+    <div class="home column">
         <Appbar />
-        <router-view />
-        <div class="home_left">
-            <titleBar />
+        <div class="split-container">
+            <router-view />
+            <div class="home_content_nav_drag" @mousedown="startDrag"></div>
+            <div class="home_right column-right">
+                <div>
+
+                </div>
+                <titleBar />
+            </div>
         </div>
     </div>
 </template>
@@ -16,11 +22,13 @@ import { useRouter } from 'vue-router';
 const chatwindow = ref(true)
 const router = useRouter();
 
+
 onMounted(() => {
     window.ipcRenderer.send('chatwindow', chatwindow.value)
     chatwindow.value = !chatwindow.value
     // ipcRenderer.send('get-state')
-})
+});
+
 ipcRenderer.on('newState', (event, newState) => {
     console.log('Received newState:', newState);
     if (newState._ === 'authorizationStateWaitPhoneNumber') {
@@ -37,8 +45,6 @@ ipcRenderer.on('newState', (event, newState) => {
         router.push('/login/password')
     }
 });
-
-
 </script>
 <style scoped>
 .home {
@@ -48,15 +54,34 @@ ipcRenderer.on('newState', (event, newState) => {
     display: flex;
 }
 
-.home_right {
+.split-container {
     display: flex;
-    width: 100%;
     height: 100%;
-    background-color: black;
+    width: 100%;
 }
 
-.home_left {
-    /* background-color: aqua; */
+
+.home_right {
+    height: 100%;
     width: 100%;
+}
+
+.home_content_nav_drag {
+    width: 0.5px;
+    /* cursor: ew-resize; */
+    background-color: #ccc;
+    position: relative;
+    z-index: 9999;
+}
+
+.home_content_nav_drag::before {
+    content: '';
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: -5px;
+    right: -5px;
+    bottom: 0;
+
 }
 </style>

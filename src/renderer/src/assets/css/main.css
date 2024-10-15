@@ -3,6 +3,11 @@
   cursor: pointer;
   text-decoration: none;
 }
+.no_Link {
+  cursor: default;
+  text-decoration: none;
+  color: #000;
+}
 .span_Link:hover{
 background: #dcdcdc;
 border-radius: 5px;

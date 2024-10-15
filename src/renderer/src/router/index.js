@@ -45,6 +45,16 @@ const routes = createRouter({
           path: 'chats',
           name: 'Chats',
           component: () => import('@/views/Home/Chats.vue')
+        },
+        {
+          path: 'contacts',
+          name: 'Contacts',
+          component: () => import('@/views/Home/Contacts.vue')
+        },
+        {
+          path: 'archive',
+          name: 'archive',
+          component: () => import('@/views/Home/Archive.vue')
         }
       ]
     }

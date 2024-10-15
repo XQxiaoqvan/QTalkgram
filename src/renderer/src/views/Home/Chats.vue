@@ -1,11 +1,11 @@
 <template>
     <!-- 对话列表 -->
-    <div class="home_content_nav" :style="{ width: navWidth + 'px' }">
+    <div class="home_content_nav" style="width: 300px;">
         <!-- 拖动栏 -->
         <div class="home_content_drag drag"></div>
         <!-- 搜索框 -->
         <div style="user-select: none;" class="home_content_nav_search">
-            <t-input class="home_content_nav_search_input" v-model="search" size="small" placeholder="搜索" clearable>
+            <t-input class="home_content_nav_search_input" v-model="search" size="small" placeholder="search" clearable>
                 <template #prefix-icon>
                     <SearchIcon />
                 </template>
@@ -18,7 +18,6 @@
             ]" animation="gradient">
             </t-skeleton>
         </div>
-        <t-divider style="margin: 0;" />
         <div>
             <div @dragstart.prevent class="home_content_nav_search_line no_select">
                 <div v-for="i in 7" :key="i" class="list_skeleton">
@@ -54,110 +53,27 @@
             </div>
         </div> -->
     </div>
-    <div class="home_content_nav_drag" @mousedown="startDrag"></div>
 </template>
 
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref } from 'vue'
 import { SearchIcon } from 'tdesign-icons-vue-next';
-// import chatlist from '@/components/SessionList/chat.vue'
-import { SoundMute1Icon } from 'tdesign-icons-vue-next';
+import { defineProps, defineEmits } from 'vue';
 
+const props = defineProps();
+const emit = defineEmits();
 
-const value = ref('22');
-const theme = ref('normal');
-const scrollPosition = ref('auto');
-
-const navWidth = ref(380)
-const isDragging = ref(false)
-let startX = 0
-const chatwindow = ref(true)
-
-const indicatorStyle = ref({})
-const groupList = ref(null)
 const search = ref('')
 const skeleton_avatar = [
     [
         { type: 'circle', size: '45px', margin: '0 0 8px 0' },
     ],
 ]
-// const skeleton_title = 
-
-
-
-
-const updateIndicatorStyle = () => {
-    nextTick(() => {
-        if (groupList.value) {
-            const groupItems = groupList.value.querySelectorAll('.group-item')
-            if (groupItems.length > 0) {
-                indicatorStyle.value = {
-                    width: `${activeItem.offsetWidth}px`,
-                    transform: `translateX(${activeItem.offsetLeft}px)`,
-                    transition: 'transform 0.3s ease, width 0.3s ease'
-                }
-            }
-        }
-    })
-}
-
-const startDrag = (event) => {
-    isDragging.value = true
-    startX = event.clientX - navWidth.value
-    document.addEventListener('mousemove', onDrag)
-    document.addEventListener('mouseup', stopDrag)
-}
-
-const onDrag = (event) => {
-    if (isDragging.value) {
-        let newWidth = event.clientX - startX
-        if (newWidth < 280) {
-            navWidth.value = 280
-        } else if (newWidth > 600) {
-            navWidth.value = 600
-        } else {
-            navWidth.value = newWidth
-        }
-    }
-}
-
-const stopDrag = () => {
-    isDragging.value = false
-    document.removeEventListener('mousemove', onDrag)
-    document.removeEventListener('mouseup', stopDrag)
-}
-
-
-onMounted(() => {
-    window.ipcRenderer.send('chatwindow', chatwindow.value)
-    chatwindow.value = !chatwindow.value
-    updateIndicatorStyle()
-})
-
 </script>
 
 
 <style scoped>
-.home_content_nav_drag {
-    width: 0.5px;
-    cursor: ew-resize;
-    background-color: #ccc;
-    position: relative;
-    z-index: 9999;
-}
-
-.home_content_nav_drag::before {
-    content: '';
-    position: absolute;
-    z-index: 9999;
-    top: 0;
-    left: -5px;
-    right: -5px;
-    bottom: 0;
-
-}
-
 .home_content_nav {
     height: 100%;
     background-color: #ffffff;
