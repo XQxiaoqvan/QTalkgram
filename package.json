@@ -18,19 +18,22 @@
     "build:linux": "npm run build && electron-builder --linux"
   },
   "dependencies": {
+    "@diadal/vue3-qr-code-styling": "^1.4.6",
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
-    "axios": "^1.7.7",
+    "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "koffi": "^2.9.0",
     "lottie-web": "^5.12.2",
-    "mica-electron": "^1.5.16",
     "pako": "^2.1.0",
-    "pinia": "^2.2.2",
-    "styled-qr-code": "^1.0.0",
-    "tdesign-icons-vue-next": "^0.2.6",
-    "tdesign-vue-next": "^1.10.1",
+    "pinia": "^2.2.0",
+    "rebuild": "^0.1.2",
+    "tdesign-icons-vue-next": "^0.2.4",
+    "tdesign-vue-next": "^1.9.9",
     "tdl": "^8.0.1",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.4.0",
+    "vue3-next-qrcode": "^2.0.10"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",
@@ -40,10 +43,15 @@
     "electron": "^31.0.2",
     "electron-builder": "^24.13.3",
     "electron-vite": "^2.3.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.26.0",
-    "prettier": "^3.3.2",
     "vite": "^5.3.1",
     "vue": "^3.4.30"
+  },
+  "build": {
+    "extraResources": [
+      {
+        "from": "resources/TDLib/bin",
+        "to": "TDLib/bin"
+      }
+    ]
   }
 }

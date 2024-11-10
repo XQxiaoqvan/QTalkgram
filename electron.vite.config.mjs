@@ -10,6 +10,7 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    assetsInclude: ['**/*.tgs'],
     resolve: {
       alias: {
         '@': resolve('src/renderer/src')

@@ -1,64 +1,48 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const routes = createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: () => import('@/views/load/index.vue')
+      name: 'default',
+      redirect: '/QRlogin'
+    },
+    {
+      path: '/QRlogin',
+      name: 'QRlogin',
+      component: () => import('@/views/QRLogin.vue')
     },
     {
       path: '/login',
-      name: 'Login',
-      component: () => import('@/views/Login/index.vue'),
-      children: [
-        {
-          path: 'phone',
-          name: 'Phone',
-          component: () => import('@/views/Login/Login.vue')
-        },
-        {
-          path: 'code',
-          name: 'Code',
-          component: () => import('@/views/Login/Logincode.vue')
-        },
-        {
-          path: 'password',
-          name: 'Password',
-          component: () => import('@/views/Login/Login2FA.vue')
-        },
-        {
-          path: 'QRlogin',
-          name: 'QRlogin',
-          component: () => import('@/views/Login/QRlogin.vue')
-        }
-      ]
+      name: 'login',
+      component: () => import('@/views/Login.vue')
+    },
+    {
+      path: '/login/code',
+      name: 'code',
+      component: () => import('@/views/LoginCode.vue')
+    },
+    {
+      path: '/login/2fa',
+      name: 'Login2FA',
+      component: () => import('@/views/Login2FA.vue'),
+      props: true
     },
     {
       path: '/home',
-      name: 'Home',
-      redirect: '/home/chats',
-      component: () => import('@/views/Home/index.vue'),
+      name: 'home',
+      component: () => import('@/views/Home.vue'),
+      redirect: '/home/chats', // 添加这一行
       children: [
         {
           path: 'chats',
-          name: 'Chats',
-          component: () => import('@/views/Home/Chats.vue')
-        },
-        {
-          path: 'contacts',
-          name: 'Contacts',
-          component: () => import('@/views/Home/Contacts.vue')
-        },
-        {
-          path: 'archive',
-          name: 'archive',
-          component: () => import('@/views/Home/Archive.vue')
+          name: 'chats',
+          component: () => import('@/views/Home/Chats/index.vue')
         }
       ]
     }
   ]
 })
 
-export default routes
+export default router
