@@ -1,34 +1,35 @@
-# qtalkgram
+[EN](README.md) | [中文](README_zh-CN.md)
 
-An Electron application with Vue
+## Note
 
-## Recommended IDE Setup
+This project is under development.
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## Description
 
-## Project Setup
+QTalkgram is a third-party client using Electron+Vue3+TDLib.
 
-### Install
+## About
 
-```bash
-$ npm install
-```
+You can follow our channel at https://t.me/QTalkgramNew to get the latest development progress and contact me.
 
-### Development
+## Debugging
 
 ```bash
-$ npm run dev
+# Clone this project and enter the directory
+npm install
+npm run dev
 ```
 
-### Build
+## Tech Stack
 
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+- [Vue](https://vuejs.org/) (Frontend support) MIT License
+- [tdl](https://github.com/Bannerets/tdl#readme) (JavaScript wrapper for TDLib) MIT License
+- [Pinia](https://pinia.vuejs.org/) (State management) MIT License
+- [TDLib](https://github.com/tdlib/td) (Telegram Database) BSL-1.0 license
+- [axios](https://axios-http.com/) (For network requests) MIT License
+- [Electron](https://www.electronjs.org/) (Electron framework) MIT License
+- [lottie-web](https://github.com/airbnb/lottie-web) (Animation library) MIT License
+- [Vue-router](https://router.vuejs.org/) (Routing management) MIT License
+- [electron-vite](https://electron-vite.org/) (Build tool) MIT License
+- [styled-qr-code](https://github.com/KilianB/styled-qr-code) (For generating QR codes) MIT License
+- [tdesign-vue-next](https://tdesign.tencent.com/) (Tencent UI component library) MIT License
