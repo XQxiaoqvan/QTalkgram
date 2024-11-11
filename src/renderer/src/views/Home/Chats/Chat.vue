@@ -50,10 +50,12 @@
             <div class="each_message">
                 <div v-for="(message, index) in messages.slice().reverse()" :key="index">
                     <div class="message_left">
-                        <avatarMessage v-if="store.setChatInfo.type._ === 'chatTypeSupergroup'"
-                            :user_id="message.sender_id.user_id" />
-                        <chatmessage :user_id="message.sender_id.user_id" :timedata="message.date"
-                            :text="message.content?.text?.text || '其他消息'" />
+                        <avatarMessage
+                            v-if="store.setChatInfo.type._ === 'chatTypeSupergroup' && userCache[message.sender_id.user_id]"
+                            :user="userCache[message.sender_id.user_id]" />
+                        <chatmessage v-if="userCache[message.sender_id.user_id]"
+                            :user="userCache[message.sender_id.user_id]" :user_id="message.sender_id.user_id"
+                            :timedata="message.date" :text="message.content?.text?.text || '其他消息'" />
                     </div>
                 </div>
             </div>
@@ -64,29 +66,50 @@
     </div>
 </template>
 <script setup>
+import { ref, watch } from 'vue';
 import chatinput from '@/components/chats/input/input.vue';
 import chatmessage from '@/components/chats/Message/txtMessage.vue';
 import avatarMessage from '@/components/chats/Message/avatarMessage.vue';
 import { windowControls } from '@/utils/WindowsButton';
 import { RemoveIcon, PasteIcon, CloseIcon, Translate1Icon, SearchIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
-import { useStore } from '@/store/store'
-import { watch, ref } from 'vue'
+import { useStore } from '@/store/store';
 
-const store = useStore()
+const store = useStore();
 const messages = ref([]);
+const userCache = ref({});
 
 watch(() => store.setChatInfo.id, (newChatId) => {
     if (newChatId) {
-        // 当 Chatid 有值时，调用 ipc 接口 get-Message
-        ipcRenderer.send('get-Message', newChatId)
+        ipcRenderer.send('get-Message', newChatId);
         console.log("Chatid的值为", newChatId);
+        messages.value = [];
     }
-})
+});
+
 ipcRenderer.on('lastMessage', (event, message) => {
     messages.value = [];
     console.log(message.messages);
-    messages.value = message.messages
-});// 按钮点击事件
+    messages.value = message.messages;
+    // 获取每条消息的用户信息
+    message.messages.forEach(async (msg) => {
+        if (!userCache.value[msg.sender_id.user_id]) {
+            userCache.value[msg.sender_id.user_id] = await getUserInfo(msg.sender_id.user_id);
+        }
+    });
+});
+
+const getUserInfo = async (userId) => {
+    if (!userCache.value[userId]) {
+        try {
+            userCache.value[userId] = await ipcRenderer.invoke('get-user', userId);
+        } catch (error) {
+            console.error("获取用户信息失败:", error);
+        }
+    }
+    return userCache.value[userId];
+};
+
+// 按钮点击事件
 const minimizeWindow = () => {
     windowControls.minimize(); // 最小化窗口
 };

@@ -2,9 +2,9 @@
     <!-- 输入框 -->
     <div @dragstart.prevent style="user-select: none;" class="chat_input">
         <div class="chat_input_input_box">
-            <div>
+            <!-- <div>
                 <t-avatar size="35px" :image="avatar" alt="头像" />
-            </div>
+            </div> -->
             <div class="icon">
                 <WinkIcon size="26px" />
             </div>

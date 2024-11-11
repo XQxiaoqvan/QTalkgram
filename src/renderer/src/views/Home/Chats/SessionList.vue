@@ -191,4 +191,25 @@ onMounted(() => {
     transition: transform 0.3s ease, width 0.3s ease;
     margin: 0 5px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+    transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #00000000;
+}
 </style>

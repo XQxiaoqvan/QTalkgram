@@ -1,7 +1,7 @@
 <template>
     <div class="txt_message">
         <!-- 名称 -->
-        <div v-if="my == true" class="name"> Test Test </div>
+        <div class="name">{{ user.first_name + user.last_name }}</div>
         <!-- 回复 -->
         <div v-if="false" class="reply"></div>
         <!-- 媒体 -->
@@ -16,7 +16,7 @@
         <!-- 语音 -->
         <div v-if="false" class="voice"></div>
         <!-- 文本消息内容 -->
-        <div class="message">{{ text }}</div>
+        <div class="message" v-html="formattedText"></div>
         <!-- 链接预览 -->
         <div v-if="false" class="link_preview"></div>
         <!-- 时间&表情回应 -->
@@ -29,17 +29,22 @@
     </div>
 </template>
 <script setup>
-import { toRefs } from 'vue';
-import { defineProps } from 'vue';
+import { toRefs, defineProps, computed } from 'vue';
 
 // 获取传递的参数
 const props = defineProps({
     my: Boolean,
     text: String,
-    timedata: Number
+    timedata: Number,
+    user: Object
 });
 
-const { my } = toRefs(props);
+const { my, text, timedata, user } = toRefs(props);
+
+// 定义 formattedText 计算属性
+const formattedText = computed(() => {
+    return text.value ? text.value.replace(/\n/g, '<br>') : '';
+});
 
 // 定义 formatTime 函数
 function formatTime(timestamp) {

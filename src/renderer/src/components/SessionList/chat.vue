@@ -49,7 +49,7 @@
                         <t-badge class="num" :count="session.unread_count" :offset="[18, 10]" />
                     </div>
                 </div>
-                <div class="grouping" v-if="true">
+                <div class="grouping" v-if="false">
                     <!-- 分组标签 -->
                     <div class="tag">
                         Test
@@ -62,7 +62,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { SoundMute1Icon } from 'tdesign-icons-vue-next';
-import { loadAnimation } from '@/utils/lottieTGS.js'
 import { useStore } from '@/store/store'
 
 

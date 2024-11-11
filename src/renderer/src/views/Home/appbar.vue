@@ -4,9 +4,9 @@
             <h1 @dragstart.prevent class="home_nav_title no_select">Gramix</h1>
             <div class="home_nav_Page">
                 <div class="avatar no_drag">
-                    <div v-if="photoBase64">
-                        <t-avatar @dragstart.prevent style="user-select: none;" size="40px"
-                            :image="'data:image/png;base64,' + photoBase64" alt="avatar" />
+                    <div v-if="photoPath">
+                        <t-avatar @dragstart.prevent style="user-select: none;" size="40px" :image="'/@fs/' + photoPath"
+                            alt="avatar" />
                     </div>
                     <div v-else>
                         <div style="user-select: none;" class="avatar-placeholder">{{ displayName }}</div>
@@ -59,7 +59,7 @@ const tgsArchive = ref(null)
 const tgsContact = ref(null)
 const tgsWallet = ref(null)
 const tgsSavedMessages = ref(null)
-const photoBase64 = ref(null);
+const photoPath = ref(null);
 const displayName = ref('');
 
 onBeforeMount(() => {
@@ -79,11 +79,10 @@ onBeforeMount(() => {
 
 onMounted(() => {
     ipcRenderer.send('get-user-avatar');
-});
-
-ipcRenderer.on('user-avatar', (event, { photoBase64: base64, displayName: name }) => {
-    photoBase64.value = base64;
-    displayName.value = name;
+    ipcRenderer.on('get-user-avatar-response', (event, me) => {
+        console.log('用户信息:', me);
+        photoPath.value = me.profile_photo.big.local.path;
+    });
 });
 </script>
 
