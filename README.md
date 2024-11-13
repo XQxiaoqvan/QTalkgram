@@ -10,7 +10,7 @@ Gramix is a third-party client using Electron+Vue3+TDLib.
 
 ## About
 
-You can follow our channel at https://t.me/QTalkgramNew to get the latest development updates and contact me.
+You can follow our channel at https://t.me/GramixTips to get the latest development updates and contact me.
 
 ## Getting Started
 
@@ -53,7 +53,3 @@ npm run dev
 - [electron-vite](https://electron-vite.org/) (Packaging tool) MIT License
 - [styled-qr-code](https://github.com/KilianB/styled-qr-code) (For generating QR codes) MIT License
 - [tdesign-vue-next](https://tdesign.tencent.com/) (Tencent UI component library) MIT License
-
-```
-
-```

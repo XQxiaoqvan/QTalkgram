@@ -11,7 +11,7 @@ Gramix 是一个使用 Electron+Vue3+TDLib 的第三方客户端
 
 ## 关于
 
-大家可以通过关注我们的频道 https://t.me/QTalkgramNew 来获取最新的开发进度以及与我联系。
+大家可以通过关注我们的频道 https://t.me/GramixTips 来获取最新的开发进度以及与我联系。
 
 ## 开始
 
