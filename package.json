@@ -1,5 +1,5 @@
 {
-  "name": "qtalkgram",
+  "name": "gramix",
   "version": "1.0.0",
   "description": "An Electron application with Vue",
   "main": "./out/main/index.js",

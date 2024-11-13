@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: qtalkgram
+appId: io.xiaoqvan.gramix
+productName: gramix
 directories:
   buildResources: build
 files:
@@ -11,7 +11,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: qtalkgram
+  executableName: gramix
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}

@@ -6,7 +6,7 @@ This project is under development.
 
 ## Description
 
-QTalkgram is a third-party client using Electron+Vue3+TDLib.
+Gramix is a third-party client using Electron+Vue3+TDLib.
 
 ## About
 

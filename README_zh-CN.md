@@ -7,7 +7,7 @@
 
 ## 描述
 
-QTalkgram 是一个使用 Electron+Vue3+TDLib 的第三方客户端
+Gramix 是一个使用 Electron+Vue3+TDLib 的第三方客户端
 
 ## 关于
 
